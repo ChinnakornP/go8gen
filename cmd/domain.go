@@ -62,13 +62,23 @@ var domainCmd = &cobra.Command{
 				Parse:            true,
 			},
 			{
+				TemplateFileName: "../tmpl/domain/usecase.go.tmpl",
+				FileName:         fmt.Sprintf("internal/domain/%s/usecase.go", p.DomainLowerCase),
+				Parse:            true,
+			},
+			{
+				TemplateFileName: "../tmpl/domain/repository.go.tmpl",
+				FileName:         fmt.Sprintf("internal/domain/%s/repository.go", p.DomainLowerCase),
+				Parse:            true,
+			},
+			{
 				TemplateFileName: "../tmpl/domain/repository/database/postgres.go.tmpl",
-				FileName:         fmt.Sprintf("internal/domain/%s/repository/database/postgres.go", p.DomainLowerCase),
+				FileName:         fmt.Sprintf("internal/domain/%s/repository/postgres/postgres.go", p.DomainLowerCase),
 				Parse:            true,
 			},
 			{
 				TemplateFileName: "../tmpl/domain/repository/database/postgres_test.go.tmpl",
-				FileName:         fmt.Sprintf("internal/domain/%s/repository/database/postgres_test.go", p.DomainLowerCase),
+				FileName:         fmt.Sprintf("internal/domain/%s/repository/postgres/postgres_test.go", p.DomainLowerCase),
 				Parse:            true,
 			},
 			{
@@ -207,8 +217,7 @@ func createDirectoryNames(domain string) []string {
 		fmt.Sprintf("internal/domain/%s", domain),
 		fmt.Sprintf("internal/domain/%s/handler", domain),
 		fmt.Sprintf("internal/domain/%s/handler/http", domain),
-		fmt.Sprintf("internal/domain/%s/repository", domain),
-		fmt.Sprintf("internal/domain/%s/repository/database", domain),
+		fmt.Sprintf("internal/domain/%s/repository/postgres", domain),
 		fmt.Sprintf("internal/domain/%s/usecase", domain),
 	}
 

@@ -71,7 +71,7 @@ func (p *Project) InjectImportDomainHandlerCode() error {
 	var importTmpl1 string
 	if p.ScaffoldUseCase {
 		importTmpl1 = fmt.Sprintf(`	%sHandler "%s/internal/domain/%s/handler/http"
-	%sRepo "%s/internal/domain/%s/repository/database"
+	%sRepo "%s/internal/domain/%s/repository/postgres"
 	%sUseCase "%s/internal/domain/%s/usecase"`,
 			p.DomainLowerCase, p.ModuleName, p.DomainLowerCase,
 			p.DomainLowerCase, p.ModuleName, p.DomainLowerCase,
